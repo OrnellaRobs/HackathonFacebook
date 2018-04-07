@@ -12,13 +12,14 @@ class HomeHelpSeeker extends Component {
         <HeaderHelpSeeker />
         <div className={classes.mainContainer}>
           <div>Facebook Assist</div>
-          {/* <div> */}
-          <button>
-            You need help
+          <div className={classes.titleEmergency}>
+            Need assistance ? Here are local emergency numbers:
+          </div>
+          <button className={classes.button1}>
+            Ask for assistance
             </button>
-          {/* </div> */}
+          <img src={hands} className={classes.handsImg} />
         </div>
-        <img src={hands} className={classes.handsImg} />
       </div>
     );
   }
@@ -30,23 +31,39 @@ const styles = {
     height: '100%',
   },
   mainContainer: {
-    paddingTop: '30px',
+    padding: '30px',
     display: 'flex',
-    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
     fontSize: '60px',
   },
-  button: {
-    background: 'none',
+  titleEmergency: {
+    display: 'flex',
+    justifyContent: 'center',
+    width: '80%',
+    fontSize: '20px',
+    color: 'grey',
+  },
+  button1: {
     border: 'none',
     color: 'white',
-    fontFamily: 'MS Serif, New York, sans-serif',
-    fontSize: '14px',
-    letterSpacing: '0.5px',
-    outline: 'none',
-    '&:hover': {
-      cursor: 'pointer',
-    },
+    borderRadius: '10px',
+    padding: '20px',
+    fontSize: '20px',
+    backgroundColor: 'blue',
   },
+  // button: {
+  //   background: 'none',
+  //   border: 'none',
+  //   color: 'white',
+  //   fontFamily: 'MS Serif, New York, sans-serif',
+  //   fontSize: '14px',
+  //   letterSpacing: '0.5px',
+  //   outline: 'none',
+  //   '&:hover': {
+  //     cursor: 'pointer',
+  //   },
+  // },
   handsImg: {
     width: '100%',
     // position: 'absolute',
