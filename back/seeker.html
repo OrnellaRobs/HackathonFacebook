@@ -27,7 +27,7 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
 	socket.on('whoami-seeker', (data) => {
 		  console.log(data);
 	});
-	  socket.emit('seeker', {"category":"call_helpers"});
+	socket.emit('seeker', {"category":"call_helpers"});
   });
 </script>
 	</body>
