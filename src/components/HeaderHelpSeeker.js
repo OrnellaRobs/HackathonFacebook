@@ -7,7 +7,7 @@ class HeaderHelpSeeker extends Component {
     const { classes } = this.props;
     return (
       <div >
-        <img src={Header} />
+        <img src={Header} className={classes.facebookHeader} />
       </div>
     );
   }
@@ -17,9 +17,6 @@ const styles = {
   facebookHeader: {
     display: 'flex',
     width: '100%',
-    height: '29px',
-    backgroundImage: `url(${Header})`,
-    backgroundSize: 'contain',
   }
 }
 
