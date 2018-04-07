@@ -25,9 +25,12 @@ class HelpSeekerNeedsStep2 extends Component {
           <textarea className={classes.detailsTextarea} placeholder="Provide some details...">
           </textarea>
           
-            <button className={classes.buttonAssistance}>
-              Find helpers around you
-            </button>
+          
+            <Link to="/HelpSeeker/Step3" style={{width: '100%'}} >
+              <button className={classes.buttonAssistance}>
+                Find helpers around you
+              </button>
+            </Link>
           
         </div>
       </div>

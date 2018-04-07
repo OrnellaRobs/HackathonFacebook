@@ -5,6 +5,7 @@ import help1 from '../images/help1.png';
 import help2 from '../images/help2.png';
 import help3 from '../images/help3.png';
 import help4 from '../images/help4.png';
+import { Link } from 'react-router-dom';
 
 class HelpSeekerNeedsStep1 extends Component {
   render() {
@@ -22,25 +23,35 @@ class HelpSeekerNeedsStep1 extends Component {
           </div>
           <div className={classes.wrapperNeeds}>
             <div className={classes.needsContainer}>
-              <img src={help1} style={{ width: '100px', height: '100px' }}/>
+              <Link to="/HelpSeeker/Step2">
+                <img src={help1} style={{ width: '100px', height: '100px' }}/>
+              </Link>
               <div className={classes.assitReason}>
                 I feel unwell
               </div>
             </div>
+
             <div className={classes.needsContainer}>
-              <img src={help4} style={{ width: '100px' }}/>
+              <Link to="/HelpSeeker/Step2">
+                <img src={help4} style={{ width: '100px' }}/>
+              </Link>
               <div className={classes.assitReason}>
                 I am stuck
               </div>
             </div>
+
             <div className={classes.needsContainer}>
-              <img src={help2} style={{ width: '100px' }}/>
+              <Link to="/HelpSeeker/Step2">
+                <img src={help2} style={{ width: '100px' }}/>
+              </Link>
               <div className={classes.assitReason}>
                 I feel unsafe
               </div>
             </div>
             <div className={classes.needsContainer}>
-              <img src={help3} style={{ width: '100px' }}/>
+              <Link to="/HelpSeeker/Step2">
+                <img src={help3} style={{ width: '100px' }}/>
+              </Link>
               <div className={classes.assitReason}>
                 Other
             </div>
@@ -53,6 +64,11 @@ class HelpSeekerNeedsStep1 extends Component {
 }
 
 const styles = {
+  '@global': {
+		textarea: {
+			outline: 'none',
+		},
+	},
   container: {
     width: '100%',
     height: '100%',
@@ -74,8 +90,12 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
   },
+  
   wrapperNeeds: {
     marginLeft: '90px',
+    '& > a': {
+      outline: 'none',
+    }
   },
   needsContainer: {
     display: 'flex',
