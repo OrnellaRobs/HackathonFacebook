@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Test from './Test';
+import HomeHelpSeeker from './HomeHelpSeeker';
 
 class App extends Component {
   render() {
@@ -11,7 +11,8 @@ class App extends Component {
       <div>
         <Router>
           <Switch>
-            <Route path="/" exact component={Test} />
+            <Route path="/" exact component={HomeHelpSeeker
+            } />
           </Switch>
         </Router>
       </div>
