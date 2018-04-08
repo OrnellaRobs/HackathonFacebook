@@ -57,6 +57,19 @@ var available_helpers = []
 var seeker_i = 0;
 var helper_i = 0;
 
+function findHelpers(helpers, id_list){
+	var res = [];
+	var i = 0;
+	for(helper of helpers){
+		var helper_index = id_list.indexOf(helper.id);
+		if(helper_index != -1){
+			res.push(i);
+		}
+		i++;
+	}
+	return res;
+}
+
 io.sockets.on('connection', (socket) => {
 	console.log('a user connected')
 	socket.on('whoami-seeker', () => {
@@ -73,12 +86,19 @@ io.sockets.on('connection', (socket) => {
 	socket.on('seeker', (req) => {
 		switch(req.category) {
 			case 'list_helpers':
-				socket.emit('seeker', helpers)
+				socket.emit('seeker', {"category":"list_helpers", "helpers":helpers});
 				break;
 			case 'call_helpers':
-				io.sockets.connected[helpers[0].socket].emit("helper", helpers[0]);
+				var truc = req;
+				console.log(findHelpers(helpers, req.helpers));
+				for(helper_id of findHelpers(helpers, req.helpers)){
+					io.sockets.connected[helpers[helper_id].socket].emit("helper", truc);
+				}
+				break;
 		}
 	})
+
+	//socket.on('helper-accept', (req) => {
 });
 
 /*

@@ -27,7 +27,7 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
 	socket.on('whoami-helper', (data) => {
 		  console.log(data);
 	});
-	  socket.on('helper', (msg) => {
+	socket.on('helper', (msg) => {
 		  console.log(msg);
 	  });
   });

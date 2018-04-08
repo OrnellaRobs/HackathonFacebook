@@ -21,13 +21,39 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
 	<script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
-  $(function () {
-    var socket = io();
-	socket.emit('whoami-seeker');
+$(function () {
+	var socket = io();
+	var called_helpers = {
+		"category": "call_helpers",
+		"seeker": {
+			"firstname" : "truc",
+			"lastname" : "machin",
+			"photo" : "https://cdn.intra.42.fr/users/medium_lramirez.jpg",
+			"location": ""
+		},
+		"helpers":[0, 3],
+		"problem":{
+			"help_type" : "truc",
+			"description": "my problem",
+			"photo": "base64encoded_photo",
+		}
+	}
+
 	socket.on('whoami-seeker', (data) => {
-		  console.log(data);
+		console.log(data);
 	});
-	socket.emit('seeker', {"category":"call_helpers"});
+	socket.emit('whoami-seeker');
+	socket.on('seeker', (req) => {
+		switch(req.category) {
+			case 'list_helpers':
+				console.log("list_helpers:");
+				console.log(req);
+				break;
+		}
+	});
+
+	socket.emit('seeker', {"category":"list_helpers"});
+	socket.emit('seeker', called_helpers);
   });
 </script>
 	</body>
