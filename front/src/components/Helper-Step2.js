@@ -15,10 +15,11 @@ class HelperStep2 extends Component {
   
   componentWillMount() {
       const xmlHttp = new XMLHttpRequest();
-      
+
       xmlHttp.open( "GET", "http://34.242.216.10:3000/get_description", false);
       xmlHttp.send( null );
-      this.setState({ details: xmlHttp.responseText.text });
+      console.log(xmlHttp.responseText)
+      this.setState({ details: xmlHttp.responseText });
   }
     submitYes()
     {
