@@ -55,7 +55,9 @@ class HelperStep2 extends Component {
               <img src={lara} className={classes.helperInfo}/>
               <div className={classes.helperPhotoMessenger}>
                 <div className={classes.test}>
-                  {this.state.details}
+                  <b>I am stuck</b>
+                  <br/>
+                  "{this.state.details}"
                 </div>
               </div>
             </div>

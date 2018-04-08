@@ -15,7 +15,7 @@ class HelpSeekerNeedsStep2 extends Component {
   
   sendDetails() {
     const xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", "http://34.242.216.10:3000/set_description?description="+encodeURI("I am stuck\n" + this.state.details), false);
+    xmlHttp.open( "GET", "http://34.242.216.10:3000/set_description?description="+encodeURI(this.state.details), false);
     xmlHttp.send( null );
   }
   
