@@ -24,16 +24,7 @@ class HelpSeekerNeedsStep1 extends Component {
           <div className={classes.wrapperNeeds}>
             <div className={classes.needsContainer}>
               <Link to="/HelpSeeker/Step2">
-                <img src={help1} style={{ width: '100px', height: '100px' }}/>
-              </Link>
-              <div className={classes.assitReason}>
-                I feel unwell
-              </div>
-            </div>
-
-            <div className={classes.needsContainer}>
-              <Link to="/HelpSeeker/Step2">
-                <img src={help4} style={{ width: '100px' }}/>
+                <img src={help4} style={{ width: '100px', height: '100px' }}/>
               </Link>
               <div className={classes.assitReason}>
                 I am stuck
@@ -46,6 +37,15 @@ class HelpSeekerNeedsStep1 extends Component {
               </Link>
               <div className={classes.assitReason}>
                 I feel unsafe
+              </div>
+            </div>
+
+            <div className={classes.needsContainer}>
+              <Link to="/HelpSeeker/Step2">
+                <img src={help1} style={{ width: '100px' }}/>
+              </Link>
+              <div className={classes.assitReason}>
+                I feel unwell
               </div>
             </div>
             <div className={classes.needsContainer}>

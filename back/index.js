@@ -7,6 +7,7 @@ var help_needed = false;
 
 app.get('/helper_call', (req, res) => {
 	res.set('Access-Control-Allow-Origin', '*');
+	help_needed = true;
 	res.send({"status":helper_status});
 })
 

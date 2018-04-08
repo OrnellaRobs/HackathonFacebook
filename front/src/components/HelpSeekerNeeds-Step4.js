@@ -20,10 +20,12 @@ class HelpSeekerNeedsStep4 extends Component {
         <HeaderHelpSeeker/>
         <div className={classes.mainContainer}>
         
-          <div className={classes.searching}>
+        <div className={classes.searching}>
             Finding helpers...
-          </div>
-          <img src={ loader }/>
+        </div>
+        
+        <img src={ loader }/>
+        
         </div>
       </div>
     );

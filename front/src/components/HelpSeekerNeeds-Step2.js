@@ -2,11 +2,26 @@ import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import HeaderHelpSeeker from './HeaderHelpSeeker';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
 
 class HelpSeekerNeedsStep2 extends Component {
+  state = {
+    details: "",
+  }
+
+  onChangeDetails(e) {
+    this.setState({ details: e.target.value });
+  }
+  
+  sendDetails() {
+    const xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "http://34.242.216.10:3000/set_description"+encodeURI(this.state.details), false);
+    xmlHttp.send( null );
+  }
+  
   render() {
     const { classes } = this.props;
-    
+
     return (
       <div className={classes.container}>
         <HeaderHelpSeeker/>
@@ -15,19 +30,16 @@ class HelpSeekerNeedsStep2 extends Component {
           <div className={classes.facebookAssist}>
             Facebook Assist
           </div>
-          
-          
-         {/*<div className={classes.msgAskNeeds}>
-            Please, provide a few details.
-          </div>
-          */}
-          
-          <textarea className={classes.detailsTextarea} placeholder="Provide some details...">
-          </textarea>
-          
+
+          <input
+            type="text"
+            className={classes.detailsTextarea}
+            placeholder="Provide some details..."
+            onChange={this.onChangeDetails.bind(this)}
+          />
           
             <Link to="/HelpSeeker/Step3" style={{width: '100%'}} >
-              <button className={classes.buttonAssistance}>
+              <button className={classes.buttonAssistance} onClick={this.sendDetails.bind(this)}>
                 Find helpers around you
               </button>
             </Link>
