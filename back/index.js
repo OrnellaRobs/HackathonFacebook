@@ -2,30 +2,15 @@ var app = require('express')();
 var server = require('http').createServer(app)
 var io = require('socket.io')(server)
 
+var helper_status = false;
 
-io.sockets.on('connection', (socket) => {
-	socket.on('seeker', (req) => {
-		switch(req.category) {
-			case 'call_helpers':
-				//socket.emit('helper', req);
-				socket.emit('seeker', 'hello');
-				break;
-			case 'cancel_request':
-				//send all helpers that help is no longer needed
-				break;
-		}
-	})
+app.get('/helper_call', (req, res) => {
+	res.send({"status":helper_status});
+})
 
-	socket.on('helper', (req) => {
-		switch(req.category) {
-			case 'helper_answer':
-				if(req.answer == 'yep'){
-					//signal other helpers that seeker found help
-				} else {
-					//remove helper from helper list
-					//if there is no helpers in the helper list, send seeker that they are fucked
-				}
-				break;
-		}
-	});
-});
+app.get('/helper_ready', (req, res) => {
+	helper_status = true;
+	res.send('truc');
+})
+
+server.listen(3000, () => console.log('Example app listening on port 3000!'))
