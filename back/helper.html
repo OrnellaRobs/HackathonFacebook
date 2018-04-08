@@ -28,8 +28,20 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
 		  console.log(data);
 	});
 	socket.on('helper', (msg) => {
-		  console.log(msg);
-	  });
+		console.log(msg);
+		var res = {}
+		if(msg.whoami.id == 0){
+			res['whoami'] = msg.whoami;
+			res['category'] = 'helper_answer';
+			res['answer'] = 'yep';
+			socket.emit('helper', 'yep');
+		} else {
+			res['whoami'] = msg.whoami;
+			res['category'] = 'helper_answer';
+			res['answer'] = 'nope';
+			socket.emit('helper', res);
+		}
+	});
   });
 </script>
 	</body>
