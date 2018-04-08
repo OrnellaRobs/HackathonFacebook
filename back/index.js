@@ -5,6 +5,7 @@ var io = require('socket.io')(server)
 var helper_status = false;
 
 app.get('/helper_call', (req, res) => {
+	res.set('Access-Control-Allow-Origin', '*');
 	res.send({"status":helper_status});
 })
 
